@@ -1,0 +1,11 @@
+--- anaconda-13.21.254/scripts/upd-instroot.orig	2016-05-12 11:32:32.064780895 -0600
++++ anaconda-13.21.254/scripts/upd-instroot	2016-05-12 11:32:51.681293780 -0600
+@@ -177,7 +177,7 @@
+     libXxf86misc libacl libaio libart_lgpl libattr libbdevid libbdevid-python
+     libbonobo libbsd libcanberra libcanberra-gtk2 libcurl libdrm  libfontenc libidn libgcc
+     libglade2 libgnomecanvas libgcrypt libgpg-error libjpeg libmlx4 libnl libogg
+-    libpng libselinux libselinux-python libsemanage
++    libpng libselinux libselinux-python libsemanage gdisk
+     libsemanage-python libsepol libssh2 libstdc++ libtdb libthai libtirpc 
+     libtool-ltdl libuser
+     libuser-python libvolume_id libvorbis libxcb libxkbfile libxml2 lklug-fonts lldpad
