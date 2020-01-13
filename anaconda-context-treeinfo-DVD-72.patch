@@ -1,0 +1,42 @@
+diff --git a/pyanaconda/packaging/yumpayload.py b/pyanaconda/packaging/yumpayload.py
+index be41077..16519df 100644
+--- a/pyanaconda/packaging/yumpayload.py
++++ b/pyanaconda/packaging/yumpayload.py
+@@ -810,10 +810,11 @@ reposdir=%s
+                 continue
+ 
+             log.info("Adding addon repo %s", addon[0])
++            #CJS value of "enabled" from treeinfo , see _getAddons
+             ks_repo = self.data.RepoData(name=addon[0],
+                                          baseurl=addon[2],
+                                          proxy=repo.proxy,
+-                                         enabled=False)
++                                         enabled=addon[3])
+             self.data.repo.dataList().append(ks_repo)
+ 
+     def _getAddons(self, baseurl, proxy_url, ssl_options):
+@@ -842,6 +843,7 @@ reposdir=%s
+             c = ConfigParser.ConfigParser()
+             ConfigParser.ConfigParser.read(c, treeinfo)
+             variant = c.get("general", "variant")
++            log.info("variant found: %s", variant)
+         except ConfigParser.Error:
+             return retval
+ 
+@@ -859,8 +861,15 @@ reposdir=%s
+                 continue
+ 
+             url = "%s/%s" % (baseurl, c.get(addonSection, "repository"))
+-            retval.append((addon, c.get(addonSection, "name"), url))
+ 
++            #retval.append((addon, c.get(addonSection, "name"), url))
++            #CJS value of "enabled" from treeinfo for enabled, default is False
++            enabled = False
++            if c.has_option(addonSection, "enabled"):
++                enabled = c.get(addonSection, "enabled")
++            retval.append((addon, c.get(addonSection, "name"), url , enabled))	
++            log.info("retval is %s", retval)
++            
+         return retval
+ 
+     def _getRepoMetadata(self, yumrepo):

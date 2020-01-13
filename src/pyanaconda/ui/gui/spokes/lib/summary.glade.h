@@ -1,0 +1,9 @@
+char *s = N_("SUMMARY OF CHANGES");
+char *s = C_("GUI|Summary Dialog", "_Cancel & Return to Custom Partitioning");
+char *s = C_("GUI|Summary Dialog", "_Accept Changes");
+char *s = N_("Your customizations will result in the following changes taking effect after you return to the main menu and begin installation:");
+char *s = N_("Order");
+char *s = N_("Action");
+char *s = N_("Type");
+char *s = N_("Device Name");
+char *s = N_("Mount point");

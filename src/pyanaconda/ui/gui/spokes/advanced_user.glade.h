@@ -1,0 +1,13 @@
+char *s = C_("GUI|Advanced User", "_Cancel");
+char *s = C_("GUI|Advanced User", "_Save Changes");
+char *s = N_("ADVANCED USER CONFIGURATION");
+char *s = C_("GUI|Advanced User", "Home _directory:");
+char *s = N_("User and Group IDs");
+char *s = C_("GUI|Advanced User", "Specify a _user ID manually:");
+char *s = C_("GUI|Advanced User", "Specify a _group ID manually:");
+char *s = N_("Group Membership");
+char *s = C_("GUI|Advanced User", "_Add user to the following groups:");
+char *s = N_("Example:");
+char *s = N_("wheel, my-team (1245), project-x (29935)");
+char *s = N_("Tip:");
+char *s = N_("You may input a comma-separated list of group names and group IDs here. Groups that do not already exist will be created; specify their GID in parentheses. ");

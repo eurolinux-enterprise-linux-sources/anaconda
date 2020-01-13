@@ -1,0 +1,12 @@
+char *s = C_("GUI|Advanced Storage|DASD|Configure", "_Cancel");
+char *s = C_("GUI|Advanced Storage|DASD|Configure", "_OK");
+char *s = N_("ADD DASD STORAGE TARGET");
+char *s = N_("To use DASD disks, you must provide the device number.");
+char *s = C_("GUI|Advanced Storage|DASD|Configure", "_Device number:");
+char *s = C_("GUI|Advanced Storage|DASD|Configure", "_Start Discovery");
+char *s = N_("Discovering DASD devices.  This may take a moment...");
+char *s = N_("Device discovery failed.");
+char *s = N_("The following error occurred discovering DASD devices.  Please double check your configuration information and try again.");
+char *s = C_("GUI|Advanced Storage|DASD|Configure", "_Retry Discovery");
+char *s = N_("Device discovery succeeded.");
+char *s = N_("The added DASD can be found under \"Local Standard Disks\".");

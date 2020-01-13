@@ -1,0 +1,25 @@
+--- anaconda-21.48.22.56/pyanaconda/installclasses/fedora.py.orig	2015-11-25 11:05:33.737283377 -0600
++++ anaconda-21.48.22.56/pyanaconda/installclasses/fedora.py	2015-11-25 11:05:45.374178675 -0600
+@@ -25,7 +25,7 @@ from pyanaconda import nm
+ class FedoraBaseInstallClass(BaseInstallClass):
+     name = "Fedora"
+     sortPriority = 10000
+-    if productName.startswith("Red Hat "):
++    if not productName.startswith("Fedora"):
+         hidden = True
+ 
+     _l10n_domain = "anaconda"
+--- anaconda-21.48.22.56/pyanaconda/installclasses/rhel.py.orig	2015-10-29 09:23:19.000000000 -0500
++++ anaconda-21.48.22.56/pyanaconda/installclasses/rhel.py	2015-11-25 11:06:32.094743443 -0600
+@@ -28,9 +28,9 @@ from blivet.devicelibs import swap
+ 
+ 
+ class RHELBaseInstallClass(BaseInstallClass):
+-    name = "Red Hat Enterprise Linux"
++    name = "EuroLinux"
+     sortPriority = 20000
+-    if not productName.startswith("Red Hat "):
++    if not productName.startswith("Euro"):
+         hidden = True
+     defaultFS = "xfs"
+ 

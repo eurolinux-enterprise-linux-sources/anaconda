@@ -1,0 +1,36 @@
+--- anaconda-21.48.22.93/scripts/anaconda-yum.orig	2017-01-13 17:20:16.950304912 -0600
++++ anaconda-21.48.22.93/scripts/anaconda-yum	2017-01-13 18:12:12.748716357 -0600
+@@ -108,6 +108,8 @@ def run_yum_transaction(release, arch, y
+         yb.preconf.root = install_root
+         yb.preconf.releasever = release
+ 
++        yb.yumvar = {}
++
+         if debug:
+             yb.preconf.debuglevel = 10
+             yb.preconf.errorlevel = 10
+@@ -118,6 +120,24 @@ def run_yum_transaction(release, arch, y
+             root = yb.conf.installroot
+             yb.conf.cachedir = yb.conf.cachedir[len(root):]
+ 
++        if 'slreleasever' not in yb.yumvar:
++            yb.yumvar['slreleasever'] = release
++            try:
++                val = open('/etc/yum/vars/slreleasever').readline()
++                if val and val[-1] == '\n':
++                    val = val[:-1]
++                yb.yumvar['slreleasever'] = val
++            except (OSError, IOError):
++                pass
++
++        # re-parse for new variable expansion
++        for reponame in yb.repos.repos:
++            try:
++                yb.repos.repos[reponame].mdpolicy = "instant"
++                yb.repos.repos[reponame].repoXML
++            except:
++                pass
++
+         # Load the transaction file and execute it
+         yb.load_ts(ts_file)
+         yb.initActionTs()

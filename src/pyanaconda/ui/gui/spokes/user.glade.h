@@ -1,0 +1,14 @@
+char *s = N_("CREATE USER");
+char *s = C_("GUI|User", "_Full name");
+char *s = C_("GUI|User", "_User name");
+char *s = N_("Full Name");
+char *s = N_("User name");
+char *s = C_("GUI|User", "_Password");
+char *s = C_("GUI|User", "_Confirm password");
+char *s = N_("Password");
+char *s = N_("Confirm Password");
+char *s = N_("<b>Tip:</b> Keep your user name shorter than 32 characters and do not use spaces.");
+char *s = C_("GUI|User", "Require a password to use this account");
+char *s = N_("empty password");
+char *s = C_("GUI|User", "Make this user administrator");
+char *s = C_("GUI|User", "_Advanced...");

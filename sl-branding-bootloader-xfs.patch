@@ -1,0 +1,20 @@
+--- anaconda-19.31.79/pyanaconda/bootloader.py	2014-04-28 19:45:59.000000000 -0500
++++ anaconda-19.31.79-sl/pyanaconda/bootloader.py	2014-07-08 15:40:24.332466849 -0500
+@@ -1404,7 +1404,7 @@
+ 
+     @property
+     def stage2_format_types(self):
+-        if productName.startswith("Red Hat "):
++        if not productName.startswith("Fedora"):
+             return ["xfs", "ext4", "ext3", "ext2", "btrfs"]
+         else:
+             return ["ext4", "ext3", "ext2", "btrfs", "xfs"]
+@@ -2063,7 +2063,7 @@
+ 
+     @property
+     def stage2_format_types(self):
+-        if productName.startswith("Red Hat "):
++        if not productName.startswith("Fedora "):
+             return ["xfs", "ext4", "ext3", "ext2"]
+         else:
+             return ["ext4", "ext3", "ext2", "xfs"]

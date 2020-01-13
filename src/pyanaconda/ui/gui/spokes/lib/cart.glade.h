@@ -1,0 +1,10 @@
+char *s = N_("SELECTED DISKS");
+char *s = C_("GUI|Selected Disks Dialog", "_Close");
+char *s = N_("Boot");
+char *s = N_("Description");
+char *s = N_("Name");
+char *s = N_("Capacity");
+char *s = N_("Free");
+char *s = C_("GUI|Selected Disks Dialog", "_Set as Boot Device");
+char *s = C_("GUI|Selected Disks Dialog", "_Remove");
+char *s = N_("Disk summary goes here");

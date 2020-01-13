@@ -1,0 +1,43 @@
+#!/bin/sh
+
+if ! rpm -q gnome-icon-theme &> /dev/null; then
+    # used in icons/check_icons.py;tests/lib/iconcheck.py
+    echo "gnome-icon-theme must be installed"
+    exit 99
+fi
+
+if ! rpm -q gnome-icon-theme-symbolic &> /dev/null; then
+    # used in icons/check_icons.py;tests/lib/iconcheck.py
+    echo "gnome-icon-theme-symbolic must be installed"
+    exit 99
+fi
+
+: "${top_srcdir:=$(dirname "$0")/../..}"
+. "${top_srcdir}/tests/testenv.sh"
+srcdir="${top_srcdir}/tests/glade"
+. "${top_srcdir}/tests/lib/testlib.sh"
+
+# If --translated was specified but not --podir, add --podir
+translate_set=0
+podir_set=0
+for arg in "$@" ; do
+    if [ "$arg" = "--translate" -o "$arg" = "-t" ]; then
+        translate_set=1
+    elif echo "$arg" | grep -q '^--podir\(=.*\)\?$' || [ "$arg" = "-p" ]; then
+        podir_set=1
+    fi
+done
+
+if [ "$translate_set" -eq 1 -a "$podir_set" -eq 0 ]; then
+    set -- "$@" --podir "${top_srcdir}/po"
+fi
+
+status=0
+for check in ${srcdir}/*/check_*.py ; do
+    findtestfiles -name '*.glade' | xargs "${check}" "$@"
+    if [ "$?" -ne 0 ]; then
+        status=1
+    fi
+done
+
+exit $status

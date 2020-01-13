@@ -1,0 +1,11 @@
+--- anaconda.spec.orig	2015-12-01 16:40:37.927042831 -0600
++++ anaconda.spec	2015-12-01 16:40:59.417001369 -0600
+@@ -91,7 +91,7 @@ Summary: Core of the Anaconda installer
+ Requires: python-blivet >= 1:0.61.15.24
+ Requires: python-meh >= %{mehver}
+ Requires: libreport-anaconda >= 2.0.21-1
+-Requires: libreport-rhel-anaconda-bugzilla >= 2.1.11-1
++#Requires: libreport-rhel-anaconda-bugzilla >= 2.1.11-1
+ Requires: libselinux-python
+ Requires: rpm-python >= %{rpmver}
+ Requires: parted >= %{partedver}

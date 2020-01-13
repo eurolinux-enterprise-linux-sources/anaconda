@@ -1,0 +1,24 @@
+--- anaconda-21.48.22.93/pyanaconda/packaging/yumpayload.py.orig	2017-01-13 17:18:59.146091436 -0600
++++ anaconda-21.48.22.93/pyanaconda/packaging/yumpayload.py	2017-01-13 18:04:31.830308044 -0600
+@@ -844,6 +844,21 @@ reposdir=%s
+             url = url.replace("$releasever", self._yum.conf.yumvar['releasever'])
+         url = url.replace("$basearch", blivet.arch.getArch())
+ 
++        # yum var resolution not really used here, fake it
++        slreleasever = '7x'
++        try:
++            val = open('/etc/yum/vars/slreleasever').readline()
++            if val and val[-1] == '\n':
++                val = val[:-1]
++            slreleasever = val
++        except (OSError, IOError):
++            pass
++        url = url.replace("$slreleasever", slreleasever)
++
++        # yum var resolution used in mirror list
++        if 'slreleasever' not in self._yum.conf.yumvar:
++            self._yum.conf.yumvar['slreleasever'] = slreleasever
++
+         return url
+ 
+     def _addYumRepo(self, name, baseurl, mirrorlist=None, proxyurl=None, **kwargs):

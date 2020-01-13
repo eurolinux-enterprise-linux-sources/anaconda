@@ -1,0 +1,13 @@
+char *s = C_("GUI|Reclaim Dialog", "_Cancel");
+char *s = C_("GUI|Reclaim Dialog", "_Reclaim space");
+char *s = N_("RECLAIM DISK SPACE");
+char *s = N_("Description goes here.");
+char *s = N_("Disk");
+char *s = N_("Name");
+char *s = N_("File System");
+char *s = N_("Reclaimable Space");
+char *s = N_("Action");
+char *s = C_("GUI|Reclaim Dialog", "_Preserve");
+char *s = C_("GUI|Reclaim Dialog", "_Delete");
+char *s = C_("GUI|Reclaim Dialog", "_Shrink");
+char *s = C_("GUI|Reclaim Dialog", "Delete _all");
